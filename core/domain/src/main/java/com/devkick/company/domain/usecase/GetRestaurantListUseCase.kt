@@ -8,9 +8,5 @@ import javax.inject.Inject
 class GetRestaurantListUseCase @Inject constructor(
     private val repository: RestaurantRepository,
 ) {
-    operator fun invoke(
-        query: String,
-        offset: Int,
-        limit: Int = 20,
-    ): Flow<RestaurantList> = repository.getSearchCompanyList(query, offset, limit)
+    operator fun invoke(): Flow<RestaurantList> = repository.getRestaurantList()
 }
