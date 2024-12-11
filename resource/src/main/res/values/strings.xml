@@ -1,0 +1,6 @@
+<resources>
+    <string name="app_name">Search Company</string>
+    <string name="placeholder">회사명 혹은 회사번호를 입력해주세요.</string>
+    <string name="link_company">회사 웹사이트</string>
+    <string name="link_company_with_link">원티드 링크</string>
+</resources>
