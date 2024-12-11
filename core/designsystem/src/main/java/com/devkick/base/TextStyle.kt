@@ -9,11 +9,6 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.sp
 import com.devkick.resource.R
 
-val Pretendard = FontFamily(
-    Font(R.font.pretendard_regular, FontWeight.Normal, FontStyle.Normal),
-    Font(R.font.pretendard_bold, FontWeight.Bold, FontStyle.Normal)
-)
-
 enum class TextStyleEnum {
     Title, Body, HeadLine
 }
@@ -22,20 +17,17 @@ enum class TextStyleEnum {
 fun typography(textStyle: TextStyleEnum): TextStyle {
     return when (textStyle) {
         TextStyleEnum.Title -> TextStyle(
-            fontFamily = Pretendard,
             fontWeight = FontWeight.Bold,
             fontSize = 16.sp,
         )
 
         TextStyleEnum.Body -> TextStyle(
-            fontFamily = Pretendard,
             fontWeight = FontWeight.Normal,
             fontSize = 13.sp,
         )
 
         TextStyleEnum.HeadLine ->
             TextStyle(
-                fontFamily = Pretendard,
                 fontWeight = FontWeight.Bold,
                 fontSize = 20.sp,
             )
