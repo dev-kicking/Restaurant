@@ -21,7 +21,8 @@ include(
     ":core:domain",
     ":core:designsystem",
     ":core:model",
-    ":core:navigation"
+    ":core:navigation",
+    ":core:datastore",
 )
 
 // Feature

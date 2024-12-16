@@ -27,14 +27,8 @@ internal fun MainNavHost(
             navController = navigator.navController,
             startDestination = navigator.startDestination,
         ) {
-            homeNavGraph(
-                padding = padding,
-            )
-
-            bookmarkNavGraph(
-                padding = padding,
-                onBackClick = { navigator.popBackStackIfNotHome() }
-            )
+            homeNavGraph(padding = padding)
+            bookmarkNavGraph(padding = padding)
         }
     }
 }

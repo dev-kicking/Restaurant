@@ -33,6 +33,6 @@ fun FailScreen(
 private fun PreviewFailScreen() {
     FailScreen(
         modifier = Modifier.fillMaxSize(),
-        message = "회사를 검색해 주세요."
+        message = "error text"
     )
 }

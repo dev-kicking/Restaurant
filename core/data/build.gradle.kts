@@ -22,5 +22,12 @@ dependencies {
     implementation(libs.bundles.retrofit)
     implementation(projects.core.model)
     implementation(projects.core.dataApi)
+    implementation(projects.core.datastore)
     implementation(libs.kotlinx.serialization.json)
+
+    //Room
+    implementation(libs.androidx.room.runtime)
+    annotationProcessor(libs.androidx.room.compiler)
+    ksp(libs.androidx.room.compiler)
+    implementation(libs.androidx.room.ktx)
 }

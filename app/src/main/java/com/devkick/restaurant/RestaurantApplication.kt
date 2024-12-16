@@ -1,4 +1,4 @@
-package com.devkick.local_food
+package com.devkick.restaurant
 
 import android.app.Application
 import dagger.hilt.android.HiltAndroidApp

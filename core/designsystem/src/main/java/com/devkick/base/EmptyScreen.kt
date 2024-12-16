@@ -19,7 +19,7 @@ fun EmptyScreen(
         contentAlignment = Alignment.Center
     ) {
         Text(
-            text = "검색어와 일치하는 회사가 없습니다.",
+            text = "Empty Restaurant",
             style = typography(TextStyleEnum.Title).copy(
                 color = colorResource(R.color.black),
             ),

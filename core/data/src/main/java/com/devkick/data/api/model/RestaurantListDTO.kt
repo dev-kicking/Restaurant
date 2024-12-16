@@ -14,5 +14,5 @@ data class RestaurantResponse(
     @SerialName("code") val code: String, // 가게 코드 (유니크 ID)
     @SerialName("thumbnailUrl") val thumbnailUrl: String, // 가게 이미지 URL
     @SerialName("iconImageUrl") val iconImageUrl: String, // 가게 아이콘 이미지 URL
-    @SerialName("name") val name: String // 가게 이름
+    @SerialName("name") val name: String? // 가게 이름
 )

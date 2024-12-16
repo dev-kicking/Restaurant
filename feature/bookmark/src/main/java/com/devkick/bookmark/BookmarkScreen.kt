@@ -9,11 +9,13 @@ import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
+import com.devkick.bookmark.component.BookmarkRestaurantList
+import com.devkick.bookmark.component.BookmarkTopBar
+import com.devkick.model.Restaurant
 
 @Composable
 fun BookmarkRoute(
     padding: PaddingValues,
-    onBackClick: () -> Unit,
     viewModel: BookmarkViewModel = hiltViewModel(),
 ) {
     val uiState by viewModel.uiState.collectAsStateWithLifecycle()
@@ -21,7 +23,7 @@ fun BookmarkRoute(
     BookmarkScreen(
         padding = padding,
         uiState = uiState,
-        onBackClick = onBackClick
+        onDeleteBookmarkClick = viewModel::deleteBookmarkRestaurant
     )
 }
 
@@ -29,7 +31,7 @@ fun BookmarkRoute(
 fun BookmarkScreen(
     padding: PaddingValues,
     uiState: BookmarkUiState,
-    onBackClick: () -> Unit,
+    onDeleteBookmarkClick: (Restaurant) -> Unit,
 ) {
 
     Column(
@@ -37,5 +39,7 @@ fun BookmarkScreen(
             .padding(padding)
             .fillMaxSize(),
     ) {
+        BookmarkTopBar()
+        BookmarkRestaurantList(uiState = uiState, onDeleteBookmarkClick = onDeleteBookmarkClick)
     }
 }
