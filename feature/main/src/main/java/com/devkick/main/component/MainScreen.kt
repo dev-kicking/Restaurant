@@ -28,5 +28,8 @@ private fun MainScreenContent(
                 padding = padding,
             )
         },
+        bottomBar = {
+            MainBottomNavigation(navigator = navigator)
+        }
     )
 }
