@@ -10,7 +10,7 @@ internal enum class MainTab(
     val route: MainTabRoute,
 ) {
     HOME(icon = R.drawable.icon_home, route = MainTabRoute.Home),
-    BOOKMARK(icon = R.drawable.ico_bookmark, route = MainTabRoute.Bookmark);
+    BOOKMARK(icon = R.drawable.ico_reaction_empty, route = MainTabRoute.Bookmark);
 
     companion object {
         @Composable
