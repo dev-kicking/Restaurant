@@ -19,6 +19,7 @@ import androidx.compose.ui.graphics.painter.ColorPainter
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
@@ -56,7 +57,7 @@ fun BookmarkRestaurantItem(
         Spacer(modifier = Modifier.width(10.dp))
 
         Text(
-            text = data.name ?: "",
+            text = data.name ?: stringResource(R.string.no_title_restaurant),
             style = typography(TextStyleEnum.Body).copy(
                 color = colorResource(R.color.black)
             ),
