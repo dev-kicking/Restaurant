@@ -19,7 +19,7 @@ interface RestaurantDao {
     suspend fun getRestaurant(code: String): Restaurant?
 
     @Query("SELECT * FROM restaurant WHERE isLiked = 1")
-    suspend fun likedRestaurants(): List<Restaurant>
+    suspend fun bookmarkedRestaurants(): List<Restaurant>
 
     @Update
     suspend fun updateRestaurant(restaurant: Restaurant)

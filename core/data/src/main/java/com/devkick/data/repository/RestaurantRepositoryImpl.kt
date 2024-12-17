@@ -8,7 +8,6 @@ import com.devkick.model.Restaurant
 import com.devkick.model.RestaurantList
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
-import timber.log.Timber
 import javax.inject.Inject
 
 class RestaurantRepositoryImpl @Inject constructor(
@@ -34,8 +33,8 @@ class RestaurantRepositoryImpl @Inject constructor(
         return appDatabase.restaurantDao().getRestaurants()
     }
 
-    override suspend fun getLikedRestaurant(): List<Restaurant> {
-        return appDatabase.restaurantDao().likedRestaurants()
+    override suspend fun getBookmarkedRestaurant(): List<Restaurant> {
+        return appDatabase.restaurantDao().bookmarkedRestaurants()
     }
 
     override suspend fun updateRestaurant(

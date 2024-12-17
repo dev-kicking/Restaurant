@@ -4,7 +4,9 @@ import androidx.compose.material3.Scaffold
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import com.devkick.main.MainNavigator
+import com.devkick.main.MainTab
 import com.devkick.main.rememberMainNavigator
+import kotlinx.collections.immutable.toPersistentList
 
 @Composable
 internal fun MainScreen(
@@ -29,7 +31,11 @@ private fun MainScreenContent(
             )
         },
         bottomBar = {
-            MainBottomNavigation(navigator = navigator)
+            MainBottomNavigation(
+                tabs = MainTab.entries.toPersistentList(),
+                currentTab = navigator.currentTab,
+                onTabSelected = { navigator.navigate(it) }
+            )
         }
     )
 }

@@ -8,6 +8,8 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
 import androidx.hilt.navigation.compose.hiltViewModel
+import androidx.lifecycle.Lifecycle
+import androidx.lifecycle.compose.LifecycleEventEffect
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import com.devkick.bookmark.component.BookmarkRestaurantList
 import com.devkick.bookmark.component.BookmarkTopBar
@@ -19,6 +21,10 @@ fun BookmarkRoute(
     viewModel: BookmarkViewModel = hiltViewModel(),
 ) {
     val uiState by viewModel.uiState.collectAsStateWithLifecycle()
+
+    LifecycleEventEffect(event = Lifecycle.Event.ON_RESUME) {
+        viewModel.getBookmarkRestaurant()
+    }
 
     BookmarkScreen(
         padding = padding,

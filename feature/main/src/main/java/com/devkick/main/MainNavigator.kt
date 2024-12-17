@@ -2,31 +2,43 @@ package com.devkick.main
 
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.remember
+import androidx.navigation.NavDestination
 import androidx.navigation.NavDestination.Companion.hasRoute
 import androidx.navigation.NavHostController
+import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
-import com.devkick.navigation.MainTabRoute
-import com.devkick.navigation.Route
+import androidx.navigation.navOptions
+import com.devkick.bookmark.navigation.navigateBookmark
+import com.devkick.home.navigation.navigateHome
 
 internal class MainNavigator(
     val navController: NavHostController,
 ) {
     val startDestination = MainTab.HOME.route
 
-    private fun popBackStack() {
-        navController.popBackStack()
-    }
+    private val currentDestination: NavDestination?
+        @Composable get() = navController
+            .currentBackStackEntryAsState().value?.destination
 
-    fun popBackStackIfNotHome() {
-        if (!isSameCurrentDestination<MainTabRoute.Home>()) {
-            popBackStack()
+    val currentTab: MainTab?
+        @Composable get() = MainTab.find { tab ->
+            currentDestination?.hasRoute(tab::class) == true
+        }
+
+    fun navigate(tab: MainTab) {
+        val navOptions = navOptions {
+            popUpTo(navController.graph.id) {
+                saveState = true
+            }
+            launchSingleTop = true
+            restoreState = true
+        }
+
+        when (tab) {
+            MainTab.HOME -> navController.navigateHome(navOptions)
+            MainTab.BOOKMARK -> navController.navigateBookmark(navOptions)
         }
     }
-
-    private inline fun <reified T : Route> isSameCurrentDestination(): Boolean {
-        return navController.currentDestination?.hasRoute<T>() == true
-    }
-
 }
 
 @Composable

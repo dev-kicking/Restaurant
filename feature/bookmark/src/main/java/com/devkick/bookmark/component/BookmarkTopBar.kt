@@ -1,7 +1,7 @@
 package com.devkick.bookmark.component
 
+import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
-import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Text
@@ -22,12 +22,12 @@ fun BookmarkTopBar(
     Box(
         modifier = modifier
             .fillMaxWidth()
+            .background(color = colorResource(R.color.white))
+            .padding(vertical = 10.dp, horizontal = 10.dp),
     ) {
-        Spacer(Modifier.padding(start = 10.dp))
-
         Text(
             text = stringResource(R.string.bookmark_restaurant_title),
-            style = typography(TextStyleEnum.Title).copy(
+            style = typography(TextStyleEnum.HeadLine).copy(
                 color = colorResource(R.color.black)
             ),
         )

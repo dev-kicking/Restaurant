@@ -11,9 +11,7 @@ sealed interface BookmarkUiState {
     data object Loading : BookmarkUiState
 
     @Immutable
-    data class Fail(
-        val message: String
-    ) : BookmarkUiState
+    data object Empty : BookmarkUiState
 
     @Immutable
     data class Success(
