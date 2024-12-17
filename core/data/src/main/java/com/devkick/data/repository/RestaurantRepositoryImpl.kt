@@ -42,7 +42,12 @@ class RestaurantRepositoryImpl @Inject constructor(
         like: Boolean
     ): Flow<Unit> = flow {
         appDatabase.restaurantDao().getRestaurant(restaurantCode)?.let { restaurant ->
-            appDatabase.restaurantDao().updateRestaurant(restaurant.copy(isLiked = like))
+            appDatabase.restaurantDao().updateRestaurant(
+                restaurant.copy(
+                    isLiked = like,
+                    likeTime = if (like) System.currentTimeMillis() else 0
+                )
+            )
             emit(Unit)
         }
     }

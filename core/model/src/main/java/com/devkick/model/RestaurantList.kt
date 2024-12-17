@@ -15,4 +15,5 @@ data class Restaurant(
     val iconImageUrl: String,
     val name: String?,
     val isLiked: Boolean,
+    val likeTime: Long = 0
 )
